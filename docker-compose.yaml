@@ -1,0 +1,9 @@
+version: '3'
+services:
+  replaceme:
+    build: .
+    image: replaceme:latest
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/workspace
