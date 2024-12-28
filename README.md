@@ -5,7 +5,7 @@
 GPUを使わないのであれば13行目以降はコメントアウト
 - Dockerfile\
 baseにするイメージを決める．\
-CUDA使わないなら`python:3.12-bullseye`，CUDA使うなら[ここ](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch/tags)とか[ここ](https://hub.docker.com/r/pytorch/pytorch/tags)から適当なものを選んで使う．\
+CUDA使わないなら`python:3.12-bullseye`とか，CUDA使うなら[ここ](https://hub.docker.com/r/pytorch/pytorch/tags?name=11.8)とかから適当なものを選んで使う．devel以外はnvccが入っていないので注意．\
 また，12~14行目もGPUを使わないのであればコメントアウト
 - Imageをビルドする\
 ターミナルで以下のコマンドを実行する
