@@ -1,10 +1,10 @@
 # 使い方
 ### セットアップ
 - docker-compose.yaml\
-`docker-compose.yaml`の`replaceme`（3,5行目）を適当な名前に入れ替える．
+`docker-compose.yaml`の`replace_me`（3,5行目）を適当な名前に入れ替える．
 - Dockerfile\
 baseにするイメージを決める．\
-CUDA使わないなら`python:3.12-bullseye`，CUDA使うなら[ここ](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch/tags)とか[ここ](https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md)から適当なものを選んで使う．
+CUDA使わないなら`python:3.12-bullseye`，CUDA使うなら[ここ](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch/tags)とか[ここ](https://hub.docker.com/r/pytorch/pytorch/tags)から適当なものを選んで使う．
 - Imageをビルドする\
 ターミナルで以下のコマンドを実行する
 ```
@@ -21,10 +21,14 @@ VSCodeのリモートエクスプローラー拡張機能の右上タブで，`�
 ```
 poetry add library_name
 ```
+- ライブラリを削除する
+```
+poetry remove library_name
+```
 - データを格納する\
 `data/`にデータを格納する
 - アプリを実装する\
-`src/gui.py`に実装する
+`src/app.py`に実装する
 - githubに上げる\
 コンテナを閉じて，ローカルからpushする
 ### Cloud Runで動かす
@@ -34,16 +38,3 @@ poetry add library_name
 docker compose up --build
 ```
 上のコマンドを実行してから，[localhost:8501](http://localhost:8501/)にアクセスする．
-
-# Dockerfile
-### CUDA使うなら
-```
-FROM nvcr.io/nvidia/pytorch:24.12-py3
-```
-```
-FROM 11.8.0-runtime-ubuntu22.04
-```
-### CUDA使わないなら
-```
-FROM python:3.12-bullseye
-```
