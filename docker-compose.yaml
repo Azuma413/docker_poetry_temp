@@ -7,3 +7,12 @@ services:
       - "8501:8501"
     volumes:
       - .:/workspace
+    restart: unless-stopped
+    # GPUを使う場合は以下を追加
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

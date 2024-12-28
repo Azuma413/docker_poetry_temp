@@ -9,6 +9,10 @@ ENV POETRY_VERSION=1.8.2 \
     PYTHONUNBUFFERED=1
 ENV PATH="$POETRY_HOME/bin:$PATH"
 
+# GPUを使う場合
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
 # パッケージのインストール
 RUN apt-get update \
     && apt-get upgrade -y \
